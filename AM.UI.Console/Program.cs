@@ -1,6 +1,8 @@
 ﻿//// See https://aka.ms/new-console-template for more information
 using AM.ApplicationCore.Domain;
-
+using AM.ApplicationCore.Interfaces;
+using System.Collections;
+using AM.ApplicationCore.Services;
 //string chaine = Console.ReadLine();
 //float age = 0;
 //try
@@ -64,9 +66,47 @@ pass1.PassangerType();
 Staff stf = new Staff();
 stf.PassangerType();
 
+ArrayList list= new ArrayList();
+list.Add(pass1);
+list.Add(12);
+list.Add("hello");
+foreach
+    (var item in list)
+{
+    Console.WriteLine(item);
+}
+List<int> ints= new List<int>();
+ints.Add(1);
+ints.Add(2);
+List<Plane> planes = new List<Plane>()
+{p3,
+ new Plane(){
+   PlaneId=1,
+   PlaneType= PlaneType.Airbus,
+   Capacity = 500,
+ }
 
+};
+ServiceFlight service = new ServiceFlight();
+service.Flights = TestData.Flights;
+Action<string, int> action;
+static void Test(string a, int v) { };
+action = delegate (string a, int b) { };
+action("hello", 2);
+Func<Boolean, string, double> func;
+static double Test2(Boolean a, string b) { return 0; };
+func = (Boolean a, string b) => 10;
+double a = func(true, "abc");
+service.GetFlights("Paris",
+delegate (string a, Flight flight)
+{
+    return flight.Destination == a;
+});
+service.GetFlights("Paris",
+ (string a, Flight flight) =>
 
-
+     flight.EstimatedDuration == int.Parse(a)
+);
 
 
 
