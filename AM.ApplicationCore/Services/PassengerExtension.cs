@@ -20,7 +20,7 @@ namespace AM.ApplicationCore.Services
             string lastName=passanger.LastName;
             firstName = char.ToUpper(firstName[0]) + firstName.Substring(1);
             lastName = char.ToUpper(lastName[0]) + lastName.Substring(1) ;
-            return firstName +" " + lastName;
+            return firstName +"  " + lastName;
              
         }
     }
