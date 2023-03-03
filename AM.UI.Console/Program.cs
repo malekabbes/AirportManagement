@@ -110,6 +110,8 @@ Console.WriteLine(x.Add(4));
 
 //     flight.EstimatedDuration == int.Parse(a)
 //);
+Passanger passanger = service.Flights[0].passangers[0];
+Console.WriteLine(passanger.UpperFullName());
 
 
 
