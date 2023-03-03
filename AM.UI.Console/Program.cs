@@ -102,11 +102,14 @@ delegate (string a, Flight flight)
 {
     return flight.Destination == a;
 });
-service.GetFlights("Paris",
- (string a, Flight flight) =>
 
-     flight.EstimatedDuration == int.Parse(a)
-);
+int x = 45;
+Console.WriteLine(x.Add(4));
+//service.GetFlights("Paris",
+// (string a, Flight flight) =>
+
+//     flight.EstimatedDuration == int.Parse(a)
+//);
 
 
 

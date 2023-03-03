@@ -83,7 +83,7 @@ namespace AM.ApplicationCore.Services
 
           }
         // LINQ Requete
-        public void ShowFlightDetailsDel(Plane plane)
+        public void ShowFlightDetails(Plane plane)
         {
             var req = from f in Flights
                       where (f.plane == plane)
@@ -126,7 +126,7 @@ namespace AM.ApplicationCore.Services
             var query = (from f in Flights where f.FlightId == flight.FlightId select f).Single();
             return query.passangers.OfType<Traveller>().ToList().OrderBy(p=>p.BirthDate).Take(3).ToList();
         }
-        public double DurationAverageDel(string destination)
+        public double DurationAverage(string destination)
         {
             //var query = from f in Flights
             //where f.Destination == destination select f;
@@ -136,6 +136,7 @@ namespace AM.ApplicationCore.Services
             .Average(f => f.EstimatedDuration);
             return query;
 }
+
         public IList<IGrouping<string,Flight>> DestinationGroupedFlights()
         {
             var req = Flights.GroupBy(f => f.Destination).ToList();
@@ -148,9 +149,36 @@ namespace AM.ApplicationCore.Services
                     Console.WriteLine("Décollage : "+item2.FlightDate);
                 }
             }
+            return req.ToList();
         }
-        //Action<Plane> FlightDetailsDel;
-        //Func<string, double> DurationAverageDel;
+
+      
+        Action<Plane> FlightDetailsDel { get ; set; }
+        Func<string, double> DurationAverageDel { get; set; }
+        public ServiceFlight()
+        {
+            //FlightDetailsDel = ShowFlightDetails;
+            DurationAverageDel = DurationAverage;
+            FlightDetailsDel = plane =>
+            {
+                var req = from f in Flights
+                          where (f.plane == plane)
+                          select new { f.FlightDate, f.Destination };
+                foreach (var item in req)
+                {
+                    Console.WriteLine(item.Destination + " " + item.FlightDate);
+                }
+            };
+            DurationAverageDel = destination =>
+            {
+                var query = Flights
+           .Where(f => f.Destination == destination)
+           .Average(f => f.EstimatedDuration);
+                return query;
+            };
+        
+        }
+  
     }
 
 }
