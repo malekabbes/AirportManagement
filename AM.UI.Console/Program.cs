@@ -54,14 +54,14 @@ Plane p3 = new Plane()
 Console.WriteLine(p3.ToString());
 Passanger pass1 = new Passanger
 {
-    FirstName = "mariem",
-    LastName = "aljene",
+    //fullname.FirstName = "mariem",
+    //LastName = "aljene",
     EmailAddress = "mariem.aljene@esprit.tn"
 
 
 };
 
-Console.WriteLine(pass1.CheckProfil("mariem", "aljene"));
+//Console.WriteLine(pass1.CheckProfil("mariem", "aljene"));
 pass1.PassangerType();
 Staff stf = new Staff();
 stf.PassangerType();
@@ -88,7 +88,7 @@ List<Plane> planes = new List<Plane>()
 
 };
 ServiceFlight service = new ServiceFlight();
-service.Flights = TestData.Flights;
+//service.Flights = TestData.Flights;
 Action<string, int> action;
 static void Test(string a, int v) { };
 action = delegate (string a, int b) { };
@@ -111,7 +111,7 @@ Console.WriteLine(x.Add(4));
 //     flight.EstimatedDuration == int.Parse(a)
 //);
 Passanger passanger = service.Flights[0].passangers[0];
-Console.WriteLine(passanger.UpperFullName());
+//Console.WriteLine(passanger.UpperFullName());
 
 
 

@@ -16,11 +16,18 @@ namespace AM.Infrastructure
         {
            modelBuilder.ApplyConfiguration(new Flightconfiguration());
             modelBuilder.ApplyConfiguration(new PlaneConfiguration());
-            modelBuilder.Entity<Passanger>().Property(f => f.FirstName)
-                .HasColumnName("PassangerName")
-                .HasMaxLength(50)
-                .IsRequired()
-                .HasColumnType("varchar");
+            modelBuilder.ApplyConfiguration(new PassangerConfiguration());
+            //modelBuilder.Entity<Passanger>().Property(f => f.fullname.FirstName)
+            //    .HasColumnName("PassangerName")
+            //    .HasMaxLength(50)
+            //    .IsRequired()
+            //    .HasColumnType("varchar");
+        }
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            configurationBuilder.Properties<string>().HaveColumnType("varchar").HaveMaxLength(50);
+            configurationBuilder.Properties<DateTime>().HaveColumnType("date");
+            configurationBuilder.Properties<Double>().HavePrecision(2,3);
         }
         public DbSet<Flight> Flights { get; set; } 
         public DbSet<Passanger> Passangers { get; set; }
