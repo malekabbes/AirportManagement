@@ -5,12 +5,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AM.ApplicationCore.Domain;
+using AM.Infrastructure.Configuration;
 
 namespace AM.Infrastructure
 {
+    
     public class AmContext : DbContext
     {
-        public DbSet<Flight> Flights { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+           modelBuilder.ApplyConfiguration(new Flightconfiguration());
+            modelBuilder.ApplyConfiguration(new PlaneConfiguration());
+            modelBuilder.Entity<Passanger>().Property(f => f.FirstName)
+                .HasColumnName("PassangerName")
+                .HasMaxLength(50)
+                .IsRequired()
+                .HasColumnType("varchar");
+        }
+        public DbSet<Flight> Flights { get; set; } 
         public DbSet<Passanger> Passangers { get; set; }
         public DbSet<Traveller> Traveller { get; set; }
         public DbSet<Staff> Staff { get; set; }

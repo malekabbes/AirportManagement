@@ -17,8 +17,9 @@ namespace AM.ApplicationCore.Domain
         public int EstimatedDuration { get; set; }
 
         [ForeignKey("Plane")]
-        public int PlaneId { get; set; }
-        public Plane plane { get; set; }
+        public int? PlaneId { get; set; }
+
+        public Plane? plane { get; set; }
         
         public IList<Passanger> passangers { get; set; }
         public override string ToString()
