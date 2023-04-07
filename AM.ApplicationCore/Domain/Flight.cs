@@ -19,7 +19,7 @@ namespace AM.ApplicationCore.Domain
 
 
         [ForeignKey("Plane")]
-        public int? PlaneId { get; set; }
+        virtual public int? PlaneId { get; set; }
 
         virtual public Plane? plane { get; set; }
         
