@@ -3,6 +3,7 @@ using AM.ApplicationCore.Domain;
 using AM.ApplicationCore.Interfaces;
 using System.Collections;
 using AM.ApplicationCore.Services;
+using AM.Infrastructure;
 //string chaine = Console.ReadLine();
 //float age = 0;
 //try
@@ -110,7 +111,25 @@ Console.WriteLine(x.Add(4));
 
 //     flight.EstimatedDuration == int.Parse(a)
 //);
-Passanger passanger = service.Flights[0].passangers[0];
+//Passanger passanger = service.Flights[0].passangers[0];
+//Console.WriteLine(passanger.());
+AmContext context= new AmContext();
+context.Flights.Add(new Flight()
+{
+    Destination = "Paris",
+    Departure = "Tunis",
+    FlightDate = DateTime.Now,
+    EstimatedDuration = 2,
+    EffectiveArrival = DateTime.Now,
+    PlaneId = 1,
+
+});
+context.SaveChanges();
+//foreach (var item in context.Flights.ToList<Flight>())
+//{
+//    Console.WriteLine(item.Departure + item.Destination + item.plane.Capacity);
+//}
+
 //Console.WriteLine(passanger.UpperFullName());
 
 

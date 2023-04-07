@@ -33,7 +33,9 @@ namespace AM.ApplicationCore.Domain
         public int TelNumber { get; set; }
         
 
-        public List<Flight> flights { get; set; }
+        virtual public List<Flight> flights { get; set; }
+
+        virtual public List<Ticket> ticket { get; set; }
         //public override string ToString()
         //{
         //    return $"BirthDate: {BirthDate}, PassportNumber: {PassportNumber}, EmailAddress: {EmailAddress}, FirstName: {FirstName}, LastName: {LastName}, TelNumber: {TelNumber}";

@@ -16,7 +16,12 @@ namespace AM.Infrastructure
         {
            modelBuilder.ApplyConfiguration(new Flightconfiguration());
             modelBuilder.ApplyConfiguration(new PlaneConfiguration());
-            modelBuilder.ApplyConfiguration(new PassangerConfiguration());
+            //modelBuilder.ApplyConfiguration(new PassangerConfiguration());
+            modelBuilder.ApplyConfiguration(new TicketConfiguration());
+            modelBuilder.Entity<Passanger>().ToTable(nameof(Passanger));
+            modelBuilder.Entity<Staff>().ToTable(nameof(Staff));
+            modelBuilder.Entity<Traveller>().ToTable(nameof(Traveller));
+
             //modelBuilder.Entity<Passanger>().Property(f => f.fullname.FirstName)
             //    .HasColumnName("PassangerName")
             //    .HasMaxLength(50)
