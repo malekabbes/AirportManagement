@@ -85,52 +85,52 @@ List<Plane> planes = new List<Plane>()
    PlaneId=1,
    PlaneType= PlaneType.Airbus,
    Capacity = 500,
- }
+ } };
 
-};
-ServiceFlight service = new ServiceFlight();
-//service.Flights = TestData.Flights;
-Action<string, int> action;
-static void Test(string a, int v) { };
-action = delegate (string a, int b) { };
-action("hello", 2);
-Func<Boolean, string, double> func;
-static double Test2(Boolean a, string b) { return 0; };
-func = (Boolean a, string b) => 10;
-double a = func(true, "abc");
-service.GetFlights("Paris",
-delegate (string a, Flight flight)
-{
-    return flight.Destination == a;
-});
-
-int x = 45;
-Console.WriteLine(x.Add(4));
+//};
+//ServiceFlight service = new ServiceFlight();
+////service.Flights = TestData.Flights;
+//Action<string, int> action;
+//static void Test(string a, int v) { };
+//action = delegate (string a, int b) { };
+//action("hello", 2);
+//Func<Boolean, string, double> func;
+//static double Test2(Boolean a, string b) { return 0; };
+//func = (Boolean a, string b) => 10;
+//double a = func(true, "abc");
 //service.GetFlights("Paris",
-// (string a, Flight flight) =>
-
-//     flight.EstimatedDuration == int.Parse(a)
-//);
-//Passanger passanger = service.Flights[0].passangers[0];
-//Console.WriteLine(passanger.());
-AmContext context= new AmContext();
-context.Flights.Add(new Flight()
-{
-    Destination = "Paris",
-    Departure = "Tunis",
-    FlightDate = DateTime.Now,
-    EstimatedDuration = 2,
-    EffectiveArrival = DateTime.Now,
-    PlaneId = 1,
-
-});
-context.SaveChanges();
-//foreach (var item in context.Flights.ToList<Flight>())
+//delegate (string a, Flight flight)
 //{
-//    Console.WriteLine(item.Departure + item.Destination + item.plane.Capacity);
-//}
+//    return flight.Destination == a;
+//});
 
-//Console.WriteLine(passanger.UpperFullName());
+//int x = 45;
+//Console.WriteLine(x.Add(4));
+////service.GetFlights("Paris",
+//// (string a, Flight flight) =>
+
+////     flight.EstimatedDuration == int.Parse(a)
+////);
+////Passanger passanger = service.Flights[0].passangers[0];
+////Console.WriteLine(passanger.());
+//AmContext context= new AmContext();
+//context.Flights.Add(new Flight()
+//{
+//    Destination = "Paris",
+//    Departure = "Tunis",
+//    FlightDate = DateTime.Now,
+//    EstimatedDuration = 2,
+//    EffectiveArrival = DateTime.Now,
+//    PlaneId = 1,
+
+//});
+//context.SaveChanges();
+////foreach (var item in context.Flights.ToList<Flight>())
+////{
+////    Console.WriteLine(item.Departure + item.Destination + item.plane.Capacity);
+////}
+
+////Console.WriteLine(passanger.UpperFullName());
 
 
 

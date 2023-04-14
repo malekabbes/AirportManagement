@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AM.UI.Console", "AM.UI.Cons
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AM.ApplicationCore", "AM.ApplicationCore\AM.ApplicationCore.csproj", "{6156E006-AD50-4995-9DE6-531EA8A82BBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AM.Infrastructure", "AM.Infrastructure\AM.Infrastructure.csproj", "{D28615FF-2985-42FD-B5D4-5C2A33558B7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AM.Infrastructure", "AM.Infrastructure\AM.Infrastructure.csproj", "{D28615FF-2985-42FD-B5D4-5C2A33558B7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AM.UI.Web", "AM.UI.Web\AM.UI.Web.csproj", "{C3FB54DA-B944-4B41-B5B9-1D005077B851}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{D28615FF-2985-42FD-B5D4-5C2A33558B7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D28615FF-2985-42FD-B5D4-5C2A33558B7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D28615FF-2985-42FD-B5D4-5C2A33558B7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3FB54DA-B944-4B41-B5B9-1D005077B851}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3FB54DA-B944-4B41-B5B9-1D005077B851}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3FB54DA-B944-4B41-B5B9-1D005077B851}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3FB54DA-B944-4B41-B5B9-1D005077B851}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

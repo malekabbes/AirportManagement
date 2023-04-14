@@ -21,8 +21,10 @@ namespace AM.ApplicationCore.Services
             return GetById(plane.PlaneId).flights.SelectMany(f => f.ticket)
                 .Select(t => t.passangerProp).ToList(); 
         }
-        public List<Flight> GetFlights(Plane plane,int n) { 
-         return GetById(plane.PlaneId).flights.OrderByDescending(f => f.FlightDate).Take(n).ToList();
+        public List<Flight> GetFlights(int n) { 
+         //return GetById(plane.PlaneId).flights.OrderByDescending(f => f.FlightDate).Take(n).ToList();
+         return GetAll().SelectMany(p => p.flights).OrderByDescending(f => f.FlightDate).Take(n).ToList();
+        
         }
         public Boolean IsAvailablePlane(Flight flight,int n)
         {
@@ -30,16 +32,29 @@ namespace AM.ApplicationCore.Services
             var flight_plane = plane_flight.flights.Find(f => flight.FlightId == f.FlightId);
             if (flight_plane.passangers.Count()+n <= plane_flight.Capacity) return true; 
             else return false;
+
+            //var plane = flight.plane;
+            //return (flight.ticket.Count() + n <= plane.Capacity)
+
+
+            //var plane = GetAll().Where(p => p.flights.Contains(flight) == true).Single();
+            //var tickets = plane.flights.Where(f => f.FlightId == f.FlightId).Single().ticket.Count();
+            //return plane.Capacity - tickets >=n
+
         }
         public void DeletePlanes()
         {
             GetAll().ToList().ForEach(p =>
             {
-                if(DateTime.Now.Year - p.ManufactureDate.Year > 10)
+                if((DateTime.Now - p.ManufactureDate).TotalDays > 10*365)
                 {
                     Delete(p);
                 }
+                Commit();
+
             });
+
+            //Delete(p=>(DateTime.Now- p.ManufactureDate).TotalDays>10*365);
             
         }
     }
