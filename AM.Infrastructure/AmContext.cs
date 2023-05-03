@@ -38,11 +38,12 @@ namespace AM.Infrastructure
         public DbSet<Passanger> Passangers { get; set; }
         public DbSet<Traveller> Traveller { get; set; }
         public DbSet<Staff> Staff { get; set; }
-
+          
         public DbSet<Plane> Plane { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"data source=(localdb)\mssqllocaldb;initial catalog=MalekAbbes;integrated security=true");
+
+            optionsBuilder.UseLazyLoadingProxies(). UseSqlServer(@"data source=(localdb)\mssqllocaldb;initial catalog=MalekAbbes;integrated security=true");
         }
     }
 }

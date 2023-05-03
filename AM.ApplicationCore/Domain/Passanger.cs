@@ -34,7 +34,7 @@ namespace AM.ApplicationCore.Domain
         
 
         virtual public List<Flight> flights { get; set; }
-
+        
         virtual public List<Ticket> ticket { get; set; }
         //public override string ToString()
         //{

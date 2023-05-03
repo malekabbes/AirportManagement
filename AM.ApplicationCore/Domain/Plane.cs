@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,15 @@ namespace AM.ApplicationCore.Domain
         public PlaneType PlaneType { get; set; }
 
         virtual public List<Flight> flights { get; set; }
+
+        [NotMapped]
+        public string Information
+        {
+            get
+            {
+                return $"PlaneID: {PlaneId}, Capacity: {Capacity}, ManufactureDate: {ManufactureDate}, PlaneType: {PlaneType}";
+            }
+        }
         public override string ToString()
         {
             return $"PlaneID: {PlaneId}, Capacity: {Capacity}, ManufactureDate: {ManufactureDate}, PlaneType: {PlaneType}";
@@ -33,6 +43,7 @@ namespace AM.ApplicationCore.Domain
             PlaneType = pt;
             Capacity = capacity;
             ManufactureDate = date;
+
         }
     }
 }
